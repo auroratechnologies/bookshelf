@@ -37,6 +37,12 @@ module.exports = function (bookshelf) {
     return (this._collections[name] = this._collections[name] || bookshelf.resolve(name));
   };
 
+  // Deletes all registered models and collections
+  bookshelf.deleteAll = function() {
+    this._models = undefined;
+    this._collection = undefined;
+  };
+
   // Provide a custom function to resolve the location of a model or collection.
   bookshelf.resolve = function(name) { return void 0; };
 
